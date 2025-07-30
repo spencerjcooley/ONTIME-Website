@@ -22,7 +22,7 @@ function getRelativePath(fullPath) {
 
 function render(fullPath = location.pathname) {
     const path = getRelativePath(fullPath);
-    const view = routes[path] || AboutView;
+    const view = routes[path] || HomeView;
 
     const app = document.getElementById('app');
     const nav = document.getElementById('navbar');
