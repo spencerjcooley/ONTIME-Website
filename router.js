@@ -48,9 +48,10 @@ document.body.addEventListener('click', e => {
     if (link) {
         e.preventDefault();
         const url = new URL(link.href);
-        const path = url.pathname;
-        history.pushState({}, '', path);
-        render(path);
+        const fullPath = url.pathname;
+        const relativePath = getRelativePath(fullPath);
+        history.pushState({}, '', `${BASE_PATH}${relativePath}`);
+        render(`${BASE_PATH}${relativePath}`);
     }
 });
 
