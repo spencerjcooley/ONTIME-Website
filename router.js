@@ -23,7 +23,7 @@ function render(path = location.pathname) {
 
 function navTemplate(currentPath) {
     return `
-        <a href="/" data-link><img src="/assets/logo.png" alt="OT Group Logo" class="logo" /></a>
+        <a href="/" data-link><img src="assets/logo.png" alt="OT Group Logo" class="logo" /></a>
         <div class="nav-container">
             <a href="/about" data-link class="${currentPath === '/about' ? 'active' : ''}">About</a>
             <a href="/services" data-link class="${currentPath === '/services' ? 'active' : ''}">Services</a>
