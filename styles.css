@@ -13,14 +13,31 @@ body {
 
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 1rem 100px;
     background-color: var(--background-colour);
 }
 
+nav img.logo {
+    height: 40px;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-colour);
+}
+
+.nav-container {
+    display: flex;
+    gap: 1.5rem;
+}
+
 .nav-container a {
-    margin-left: 1.5rem;
     text-decoration: none;
     color: var(--text-colour);
     font-weight: bold;
@@ -30,31 +47,39 @@ nav {
     text-decoration: underline;
 }
 
-nav img.logo {
-    height: 40px;
+/* Hidden class for toggling */
+.hidden {
+    display: none;
 }
 
+/* Main padding */
 main {
     padding: 2rem 100px;
 }
 
-@media (max-width: 768px) {
+/* Mobile Styles */
+@media (max-width: 699px) {
     nav {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
         padding: 1rem 20px;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        gap: 0.5rem;
+    }
+
+    .nav-container a {
+        display: block;
     }
 
     main {
         padding: 1rem 20px;
-    }
-
-    .nav-container {
-        margin-top: 1rem;
-    }
-
-    .nav-container a {
-        display: inline-block;
-        margin: 0 1rem 0.5rem 0;
     }
 }

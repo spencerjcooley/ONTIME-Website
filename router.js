@@ -34,8 +34,11 @@ function render(fullPath = location.pathname) {
 
 function navTemplate(currentPath) {
     return `
-        <a href="${BASE_PATH}/" data-link><img src="${BASE_PATH}/assets/logo.png" alt="OT Group Logo" class="logo" /></a>
-        <div class="nav-container">
+        <a href="${BASE_PATH}/" data-link>
+            <img src="${BASE_PATH}/assets/logo.avif" alt="OT Group Logo" class="logo" />
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <div class="nav-container hidden">
             <a href="${BASE_PATH}/about" data-link class="${currentPath === '/about' ? 'active' : ''}">About</a>
             <a href="${BASE_PATH}/services" data-link class="${currentPath === '/services' ? 'active' : ''}">Services</a>
             <a href="${BASE_PATH}/contact" data-link class="${currentPath === '/contact' ? 'active' : ''}">Contact</a>
@@ -55,5 +58,27 @@ document.body.addEventListener('click', e => {
     }
 });
 
+const navContainer = document.querySelector('.nav-container');
+
 window.addEventListener('popstate', () => render());
 window.addEventListener('DOMContentLoaded', () => render());
+window.addEventListener('DOMContentLoaded', () => {
+    render();
+    document.body.addEventListener('click', e => {
+        const toggle = e.target.closest('.nav-toggle');
+        if (toggle) {
+            document.querySelector('.nav-container')?.classList.toggle('hidden');
+        }
+    });
+});
+
+document.querySelector('.nav-toggle').addEventListener('click', () => {
+    navContainer.classList.toggle('hidden');
+});
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 700) {
+        navContainer.classList.remove('hidden');
+    } else {
+        navContainer.classList.add('hidden');
+    }
+});
