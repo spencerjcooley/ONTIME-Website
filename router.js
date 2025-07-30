@@ -3,7 +3,7 @@ import { AboutView } from './views/about.js';
 import { ServicesView } from './views/services.js';
 import { ContactView } from './views/contact.js';
 
-// Set the base path used in GitHub Pages
+// Set the base path used in GitHub Pages, will be removed when using custom domain
 const BASE_PATH = '/ONTIME-Website';
 
 const routes = {
