@@ -38,7 +38,7 @@ function navTemplate(currentPath) {
             <img src="${BASE_PATH}/assets/logo.avif" alt="OT Group Logo" class="logo" />
         </a>
         <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-        <div class="nav-container hidden">
+        <div class="nav-container">
             <a href="${BASE_PATH}/about" data-link class="${currentPath === '/about' ? 'active' : ''}">About</a>
             <a href="${BASE_PATH}/services" data-link class="${currentPath === '/services' ? 'active' : ''}">Services</a>
             <a href="${BASE_PATH}/contact" data-link class="${currentPath === '/contact' ? 'active' : ''}">Contact</a>

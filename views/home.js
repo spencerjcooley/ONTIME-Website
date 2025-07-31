@@ -1,8 +1,7 @@
 export function HomeView() {
     return `
-        <section>
-            <h1>ONTIME GROUP</h1>
-            <p><i>Passionate</i> about waste management</p>
-        </section>
+        <header>
+            <img src="${BASE_PATH}/assets/home/cropped_hero_upscaled.avif" alt="Large truck moving rubble from a construction site">
+        </header>
     `;
 }
