@@ -53,22 +53,16 @@ function initNavbar() {
 
     if (!navToggle || !navContainer) return;
 
-    const newToggle = navToggle.cloneNode(true);
-    navToggle.replaceWith(newToggle);
-
-    newToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', () => {
         navContainer.classList.toggle('hidden');
     });
-
-    if (window.innerWidth < 700) {
-        navContainer.classList.add('hidden');
-    } else {
-        navContainer.classList.remove('hidden');
-    }
-
-    window.removeEventListener('__navbar_resize__', window.__navbarResizeHandler__);
-    window.__navbarResizeHandler__ = () => setInitialNavVisibility();
-    window.addEventListener('resize', window.__navbarResizeHandler__);
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 700) {
+            navContainer.classList.add('hidden');
+        } else {
+            navContainer.classList.remove('hidden')
+        }
+    });
 }
 
 document.body.addEventListener('click', e => {
