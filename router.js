@@ -53,7 +53,10 @@ function initNavbar() {
 
     if (!navToggle || !navContainer) return;
 
-    navToggle.addEventListener('click', () => {
+    const newToggle = navToggle.cloneNode(true);
+    navToggle.replaceWith(newToggle);
+
+    newToggle.addEventListener('click', () => {
         navContainer.classList.toggle('hidden');
     });
 
@@ -63,13 +66,9 @@ function initNavbar() {
         navContainer.classList.remove('hidden');
     }
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 700) {
-            navContainer.classList.remove('hidden');
-        } else {
-            navContainer.classList.add('hidden');
-        }
-    });
+    window.removeEventListener('__navbar_resize__', window.__navbarResizeHandler__);
+    window.__navbarResizeHandler__ = () => setInitialNavVisibility();
+    window.addEventListener('resize', window.__navbarResizeHandler__);
 }
 
 document.body.addEventListener('click', e => {
@@ -85,12 +84,4 @@ document.body.addEventListener('click', e => {
 });
 
 window.addEventListener('popstate', () => render());
-window.addEventListener('DOMContentLoaded', () => {
-    render();
-    document.body.addEventListener('click', e => {
-        const toggle = e.target.closest('.nav-toggle');
-        if (toggle) {
-            document.querySelector('.nav-container')?.classList.toggle('hidden');
-        }
-    });
-});
+window.addEventListener('DOMContentLoaded', () => { render() });
