@@ -61,7 +61,6 @@ document.body.addEventListener('click', e => {
 const navContainer = document.querySelector('.nav-container');
 
 window.addEventListener('popstate', () => render());
-window.addEventListener('DOMContentLoaded', () => render());
 window.addEventListener('DOMContentLoaded', () => {
     render();
     document.body.addEventListener('click', e => {
@@ -72,9 +71,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.querySelector('.nav-toggle').addEventListener('click', () => {
-    navContainer.classList.toggle('hidden');
-});
 window.addEventListener('resize', () => {
     if (window.innerWidth >= 700) {
         navContainer.classList.remove('hidden');
