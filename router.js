@@ -60,7 +60,7 @@ function initNavbar() {
         if (window.innerWidth < 700) {
             navContainer.classList.add('hidden');
         } else {
-            navContainer.classList.remove('hidden')
+            navContainer.classList.remove('hidden');
         }
     });
 }
@@ -79,3 +79,10 @@ document.body.addEventListener('click', e => {
 
 window.addEventListener('popstate', () => render());
 window.addEventListener('DOMContentLoaded', () => { render() });
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 700) {
+        navContainer.classList.add('hidden');
+    } else {
+        navContainer.classList.remove('hidden');
+    }
+});
