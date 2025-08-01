@@ -30,6 +30,7 @@ function render(fullPath = location.pathname) {
 
     app.innerHTML = view(BASE_PATH);
     nav.innerHTML = navTemplate(path);
+    initNavbar();
 }
 
 function navTemplate(currentPath) {
@@ -44,6 +45,23 @@ function navTemplate(currentPath) {
             <a href="${BASE_PATH}/contact" data-link class="${currentPath === '/contact' ? 'active' : ''}">Contact</a>
         </div>
     `;
+}
+
+function initNavbar() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navContainer = document.querySelector('.nav-container');
+
+    if (!navToggle || !navContainer) return;
+
+    navToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('hidden');
+    });
+
+    if (window.innerWidth < 700) {
+        navContainer.classList.add('hidden');
+    } else {
+        navContainer.classList.remove('hidden');
+    }
 }
 
 document.body.addEventListener('click', e => {
