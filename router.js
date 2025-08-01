@@ -5,7 +5,6 @@ import { ContactView } from './views/contact.js';
 
 // Set the base path used in GitHub Pages, will be removed when using custom domain
 const BASE_PATH = '/ONTIME-Website';
-
 const routes = {
     '/': HomeView,
     '/home': HomeView,
@@ -20,29 +19,21 @@ function getRelativePath(fullPath) {
         : '/';
 }
 
-function render(fullPath = location.pathname) {
-    const path = getRelativePath(fullPath);
-    const view = routes[path] || HomeView;
-
-    const app = document.getElementById('app');
-    const nav = document.getElementById('navbar');
-    if (!app || !nav) return;
-
-    app.innerHTML = view(BASE_PATH);
-    nav.innerHTML = navTemplate(path);
-    initNavbar();
-}
-
 function navTemplate(currentPath) {
+    const links = [
+        { path: '/about', label: 'About' },
+        { path: '/services', label: 'Services' },
+        { path: '/contact', label: 'Contact' }
+    ];
     return `
         <a href="${BASE_PATH}/" data-link>
             <img src="${BASE_PATH}/assets/logo.avif" alt="OT Group Logo" class="logo" />
         </a>
         <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
         <div class="nav-container">
-            <a href="${BASE_PATH}/about" data-link class="${currentPath === '/about' ? 'active' : ''}">About</a>
-            <a href="${BASE_PATH}/services" data-link class="${currentPath === '/services' ? 'active' : ''}">Services</a>
-            <a href="${BASE_PATH}/contact" data-link class="${currentPath === '/contact' ? 'active' : ''}">Contact</a>
+            ${links.map(link =>
+                `<a href="${BASE_PATH}${link.path}" data-link class="${currentPath === link.path ? 'active' : ''}">${link.label}</a>`
+            ).join('')}
         </div>
     `;
 }
@@ -50,19 +41,30 @@ function navTemplate(currentPath) {
 function initNavbar() {
     const navToggle = document.querySelector('.nav-toggle');
     const navContainer = document.querySelector('.nav-container');
-
     if (!navToggle || !navContainer) return;
 
-    navToggle.addEventListener('click', () => {
-        navContainer.classList.toggle('hidden');
-    });
-    window.addEventListener('resize', () => {
-        if (window.innerWidth < 700) {
-            navContainer.classList.add('hidden');
-        } else {
-            navContainer.classList.remove('hidden');
-        }
-    });
+    navToggle.onclick = () => navContainer.classList.toggle('hidden');
+    handleNavVisibility(navContainer);
+    window.addEventListener('resize', () => handleNavVisibility(navContainer));
+}
+
+function handleNavVisibility(navContainer) {
+    if (window.innerWidth < 700) {
+        navContainer.classList.add('hidden');
+    } else {
+        navContainer.classList.remove('hidden');
+    }
+}
+
+function render(fullPath = location.pathname) {
+    const path = getRelativePath(fullPath);
+    const view = routes[path] || HomeView;
+    const app = document.getElementById('app');
+    const nav = document.getElementById('navbar');
+    if (!app || !nav) return;
+    app.innerHTML = view(BASE_PATH);
+    nav.innerHTML = navTemplate(path);
+    initNavbar();
 }
 
 document.body.addEventListener('click', e => {
@@ -78,11 +80,4 @@ document.body.addEventListener('click', e => {
 });
 
 window.addEventListener('popstate', () => render());
-window.addEventListener('DOMContentLoaded', () => { render() });
-window.addEventListener('resize', () => {
-    if (window.innerWidth < 700) {
-        navContainer.classList.add('hidden');
-    } else {
-        navContainer.classList.remove('hidden');
-    }
-});
+window.addEventListener('DOMContentLoaded', render);
