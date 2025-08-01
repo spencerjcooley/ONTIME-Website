@@ -62,6 +62,14 @@ function initNavbar() {
     } else {
         navContainer.classList.remove('hidden');
     }
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 700) {
+            navContainer.classList.remove('hidden');
+        } else {
+            navContainer.classList.add('hidden');
+        }
+    });
 }
 
 document.body.addEventListener('click', e => {
@@ -76,8 +84,6 @@ document.body.addEventListener('click', e => {
     }
 });
 
-const navContainer = document.querySelector('.nav-container');
-
 window.addEventListener('popstate', () => render());
 window.addEventListener('DOMContentLoaded', () => {
     render();
@@ -87,12 +93,4 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.nav-container')?.classList.toggle('hidden');
         }
     });
-});
-
-window.addEventListener('resize', () => {
-    if (window.innerWidth >= 700) {
-        navContainer.classList.remove('hidden');
-    } else {
-        navContainer.classList.add('hidden');
-    }
 });
