@@ -28,7 +28,7 @@ function render(fullPath = location.pathname) {
     const nav = document.getElementById('navbar');
     if (!app || !nav) return;
 
-    app.innerHTML = view();
+    app.innerHTML = view(BASE_PATH);
     nav.innerHTML = navTemplate(path);
 }
 
