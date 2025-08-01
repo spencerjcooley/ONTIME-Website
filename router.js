@@ -14,9 +14,12 @@ const routes = {
 };
 
 function getRelativePath(fullPath) {
-    return fullPath.startsWith(BASE_PATH)
-        ? fullPath.slice(BASE_PATH.length) || '/'
-        : '/';
+    let path = fullPath.startsWith(BASE_PATH)
+        ? fullPath.slice(BASE_PATH.length)
+        : fullPath;
+    if (!path.startsWith('/')) path = '/' + path;
+    if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+    return path || '/';
 }
 
 function navTemplate(currentPath) {
@@ -65,17 +68,18 @@ function render(fullPath = location.pathname) {
     app.innerHTML = view(BASE_PATH);
     nav.innerHTML = navTemplate(path);
     initNavbar();
+    window.scrollTo(0, 0);
 }
 
 document.body.addEventListener('click', e => {
     const link = e.target.closest('a[data-link]');
     if (link) {
         e.preventDefault();
-        const url = new URL(link.href);
+        const url = new URL(link.href, window.location.origin);
         const fullPath = url.pathname;
         const relativePath = getRelativePath(fullPath);
-        history.pushState({}, '', `${BASE_PATH}${relativePath}`);
-        render(`${BASE_PATH}${relativePath}`);
+        history.pushState({}, '', `${BASE_PATH}${relativePath === '/' ? '' : relativePath}`);
+        render(`${BASE_PATH}${relativePath === '/' ? '' : relativePath}`);
     }
 });
 
