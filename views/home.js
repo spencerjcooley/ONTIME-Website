@@ -16,8 +16,8 @@ export function HomeView(BASE_PATH) {
                         <span>ONTIME</span> is a locally owned Australian waste management company based in Ingleburn.
                         We offer fast, reliable, and cost-effective waste removal and recycling solutions for residential, commercial, and construction sites across Sydney.<br><br>
                         Our innovative waste handling systems improve site safety and efficiency, helping your projects stay on track.
-                        Backed by a large team of experienced staff and a modern fleet of equipment, we’re equipped to manage all types of waste—big or small.
-                        <span><a href="/${BASE_PATH}/about">Learn more</a><span>
+                        Backed by a large team of experienced staff and a modern fleet of equipment, we’re equipped to manage all types of waste—big or small.<br><br>
+                        <a href="/${BASE_PATH}/about">Learn more</a>
                     </p>
                 </div>
                 <img src="${BASE_PATH}/assets/home/about.avif" alt="About Us">
@@ -28,7 +28,7 @@ export function HomeView(BASE_PATH) {
                     <p>
                         From site rubbish removal to licensed excavation and complete waste management, <span>ONTIME</span> handles it all.
                         We service Ingleburn and greater Sydney with efficient rubbish collection, up to 80% recycling of construction waste, and expert bobcat/excavator hire.
-                        Let us keep your project clean, compliant, and on schedule.
+                        Let us keep your project clean, compliant, and on schedule.<br><br>
                         <a href="/${BASE_PATH}/services">Learn more</a>
                     </p>
                 </div>

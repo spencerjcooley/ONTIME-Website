@@ -1,5 +1,6 @@
 :root {
     --background-colour: #FFFFFF;
+    --secondary-colour: #E0E0E0;
     --text-colour: #000000;
     --primary-colour: #88C73A;
 }
@@ -25,7 +26,6 @@ nav {
 
 span {
     color: var(--primary-colour);
-    text-decoration-color: var(--primary-colour);
 }
 
 nav img.logo {
@@ -78,13 +78,12 @@ header img {
     object-position: left;
 }
 
-
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 69.4vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,11 +115,11 @@ header img {
 
 .card {
     background-color: var(--background-colour);
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: 1px solid var(--secondary-colour);
+    border-radius: 0.25rem;
     padding: 1.5rem;
     width: 60vw;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -135,8 +134,13 @@ header img {
 .card img {
     width: 250px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 0.25rem;
     object-fit: cover;
+}
+
+a {
+    color: var(--primary-colour);
+    text-decoration-color: var(--primary-colour);
 }
 
 footer {
