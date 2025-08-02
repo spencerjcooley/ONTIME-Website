@@ -26,7 +26,7 @@ export function HomeView(BASE_PATH) {
                 <div class="card-text">
                     <h2>Our Services</h2>
                     <p>
-                        From site rubbish removal to licensed excavation and complete waste management, <span>ONTIME</span> handles it all.
+                        From site rubbish removal to licensed excavation and complete waste management, <span>ONTIME</span> handles it all.<br><br>
                         We service Ingleburn and greater Sydney with efficient rubbish collection, up to 80% recycling of construction waste, and expert bobcat/excavator hire.
                         Let us keep your project clean, compliant, and on schedule.<br><br>
                         <a href="/${BASE_PATH}/services" data-link>Learn more</a>
