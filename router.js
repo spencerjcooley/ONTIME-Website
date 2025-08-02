@@ -3,8 +3,9 @@ import { AboutView } from './views/about.js';
 import { ServicesView } from './views/services.js';
 import { ContactView } from './views/contact.js';
 
-// Set the base path used in GitHub Pages, will be removed when using custom domain
+// GitHub Pages base path (remove when deploying to custom domain)
 const BASE_PATH = '/ONTIME-Website';
+
 const routes = {
     '/': HomeView,
     '/home': HomeView,
@@ -41,14 +42,18 @@ function navTemplate(currentPath) {
     `;
 }
 
-function initNavbar() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navContainer = document.querySelector('.nav-container');
+function updateNav(currentPath) {
+    const nav = document.getElementById('navbar');
+    if (!nav) return;
+    nav.innerHTML = navTemplate(currentPath);
+
+    const navToggle = nav.querySelector('.nav-toggle');
+    const navContainer = nav.querySelector('.nav-container');
+
     if (!navToggle || !navContainer) return;
 
     navToggle.onclick = () => navContainer.classList.toggle('hidden');
     handleNavVisibility(navContainer);
-    window.addEventListener('resize', () => handleNavVisibility(navContainer));
 }
 
 function handleNavVisibility(navContainer) {
@@ -62,26 +67,35 @@ function handleNavVisibility(navContainer) {
 function render(fullPath = location.pathname) {
     const path = getRelativePath(fullPath);
     const view = routes[path] || HomeView;
+
     const app = document.getElementById('app');
-    const nav = document.getElementById('navbar');
-    if (!app || !nav) return;
+    if (!app) return;
+
     app.innerHTML = view(BASE_PATH);
-    nav.innerHTML = navTemplate(path);
-    initNavbar();
+    updateNav(path);
     window.scrollTo(0, 0);
 }
 
+// SPA-style link interception
 document.body.addEventListener('click', e => {
     const link = e.target.closest('a[data-link]');
-    if (link) {
-        e.preventDefault();
-        const url = new URL(link.href, window.location.origin);
-        const fullPath = url.pathname;
-        const relativePath = getRelativePath(fullPath);
-        history.pushState({}, '', `${BASE_PATH}${relativePath === '/' ? '' : relativePath}`);
-        render(`${BASE_PATH}${relativePath === '/' ? '' : relativePath}`);
-    }
+    if (!link) return;
+
+    e.preventDefault();
+    const url = new URL(link.href, window.location.origin);
+    const relativePath = getRelativePath(url.pathname);
+    const fullPath = `${BASE_PATH}${relativePath === '/' ? '' : relativePath}`;
+
+    history.pushState({}, '', fullPath);
+    render(fullPath);
 });
 
+// One-time resize listener
+window.addEventListener('resize', () => {
+    const navContainer = document.querySelector('.nav-container');
+    if (navContainer) handleNavVisibility(navContainer);
+});
+
+// Routing support
 window.addEventListener('popstate', () => render());
-window.addEventListener('DOMContentLoaded', render);
+window.addEventListener('DOMContentLoaded', () => render());
