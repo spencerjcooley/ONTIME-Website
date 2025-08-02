@@ -36,6 +36,10 @@ export function HomeView(BASE_PATH) {
             </div>
         </section>
 
+        <section class="cta">
+            <h2>GOT ANY QUESTIONS? CALL <a href="tel:1300866937">1300 866 937</a></h2>
+        </section>
+
         <footer>
             <p>&copy; 2025 OT Group. All rights reserved.</p>
         </footer>
