@@ -25,6 +25,7 @@ nav {
 
 span {
     color: var(--primary-colour);
+    text-decoration-color: var(--primary-colour);
 }
 
 nav img.logo {

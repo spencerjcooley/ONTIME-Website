@@ -17,7 +17,7 @@ export function HomeView(BASE_PATH) {
                         We offer fast, reliable, and cost-effective waste removal and recycling solutions for residential, commercial, and construction sites across Sydney.<br><br>
                         Our innovative waste handling systems improve site safety and efficiency, helping your projects stay on track.
                         Backed by a large team of experienced staff and a modern fleet of equipment, we’re equipped to manage all types of waste—big or small.
-                        <a href="/${BASE_PATH}/about">Learn more</a>
+                        <span><a href="/${BASE_PATH}/about">Learn more</a><span>
                     </p>
                 </div>
                 <img src="${BASE_PATH}/assets/home/about.avif" alt="About Us">
