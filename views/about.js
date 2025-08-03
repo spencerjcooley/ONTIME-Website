@@ -7,8 +7,8 @@ export function AboutView(BASE_PATH) {
             </div>
         </header>
 
-        <section class="about-section">
-            <div class="about-text">
+        <section class="split-section">
+            <div class="split-text">
                 <h2>About Us</h2>
                 <p>
                     At <span>ONTIME</span>, we deliver more than just waste removal—we provide a complete, well-structured process to maintain and manage your construction site with efficiency and care.
