@@ -1,7 +1,7 @@
-export function ContactView() {
+export function ContactView(BASE_PATH) {
     return `
         <header>
-            <img src="../assets/contact/banner.avif" alt="Large truck moving rubble from a construction site">
+            <img src="${BASE_PATH}/assets/contact/banner.avif" alt="Large truck moving rubble from a construction site">
             <div class="hero-overlay">
                 <h1>Contact <span>US</span></h1>
             </div>
