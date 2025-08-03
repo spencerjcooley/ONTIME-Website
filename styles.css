@@ -69,6 +69,7 @@ header {
     position: relative;
     width: 100vw;
     overflow: hidden;
+    margin-bottom: 50px;
 }
 
 header img {
@@ -91,7 +92,6 @@ header img {
     text-align: center;
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    margin-bottom: 50px;
 }
 
 .hero-overlay h1 {
