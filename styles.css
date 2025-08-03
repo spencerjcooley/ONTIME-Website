@@ -151,6 +151,34 @@ a {
     color: var(--text-colour);
 }
 
+.about-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 60vw;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.about-text {
+    flex: 1;
+    text-align: justify;
+}
+
+.about-image {
+    width: 30vw;
+    border-radius: 0.25rem;
+    object-fit: cover;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+}
+
 footer {
     background-color: var(--text-colour);
     padding: 1rem 100px;
