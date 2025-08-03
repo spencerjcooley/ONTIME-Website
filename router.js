@@ -1,6 +1,5 @@
 import { HomeView } from './views/home.js';
 import { AboutView } from './views/about.js';
-import { ServicesView } from './views/services.js';
 import { ContactView } from './views/contact.js';
 
 // GitHub Pages base path (remove when deploying to custom domain)
@@ -10,7 +9,6 @@ const routes = {
     '/': HomeView,
     '/home': HomeView,
     '/about': AboutView,
-    '/services': ServicesView,
     '/contact': ContactView,
 };
 
@@ -26,7 +24,6 @@ function getRelativePath(fullPath) {
 function navTemplate(currentPath) {
     const links = [
         { path: '/about', label: 'About' },
-        { path: '/services', label: 'Services' },
         { path: '/contact', label: 'Contact' }
     ];
     return `

@@ -31,7 +31,7 @@ export function AboutView(BASE_PATH) {
                 </ul>
             </div>
             <div class="about-image">
-                <img src="${BASE_PATH}/assets/about/map.svg" alt="Map showing our location">
+                <img src="${BASE_PATH}/assets/about/map.avif" alt="Map showing our location">
             </div>
         </section>
     `;

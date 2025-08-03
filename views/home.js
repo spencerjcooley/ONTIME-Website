@@ -29,10 +29,9 @@ export function HomeView(BASE_PATH) {
                         From site rubbish removal to licensed excavation and complete waste management, <span>ONTIME</span> handles it all.<br><br>
                         We service Ingleburn and greater Sydney with efficient rubbish collection, up to 80% recycling of construction waste, and expert bobcat/excavator hire.
                         Let us keep your project clean, compliant, and on schedule.<br><br>
-                        <a href="/${BASE_PATH}/services" data-link>Learn more</a>
                     </p>
                 </div>
-                <img src="${BASE_PATH}/assets/home/services.avif" alt="Our Services">
+                <img src="${BASE_PATH}/assets/home/cropped_services.avif" alt="Our Services">
             </div>
         </section>
 
