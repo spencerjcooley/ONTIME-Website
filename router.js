@@ -72,6 +72,9 @@ function render(fullPath = location.pathname) {
     if (!app) return;
 
     app.innerHTML = view(BASE_PATH);
+    const footer = document.getElementById('footer');
+    if (footer) footer.innerHTML = `<p>&copy; 2025 ONTIME GROUP PTY LTD</p>`;
+    
     updateNav(path);
     window.scrollTo(0, 0);
 }
