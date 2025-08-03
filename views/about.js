@@ -1,8 +1,10 @@
 export function AboutView() {
     return `
-        <section>
-            <h1>About Us</h1>
-            <p>ONTIME GROUP</p>
-        </section>
+        <header>
+            <img src="../assets/about/banner.avif" alt="Large truck moving rubble from a construction site">
+            <div class="hero-overlay">
+                <h1>About <span>US</span></h1>
+            </div>
+        </header>
     `;
 }
