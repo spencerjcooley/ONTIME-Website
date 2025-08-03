@@ -68,7 +68,6 @@ header {
     position: relative;
     width: 100vw;
     overflow: hidden;
-    margin: 0 0 50px;
 }
 
 header img {
@@ -244,6 +243,21 @@ footer {
     .cta {
         padding: 2rem 1rem;
         text-align: center;
+    }
+
+    .about-section {
+        flex-direction: column;
+        width: 80vw;
+        padding: 50px 0;
+    }
+
+    .about-image {
+        width: 100%;
+    }
+
+    .about-image img {
+        width: 100%;
+        border-radius: 0.25rem;
     }
 
     footer {
