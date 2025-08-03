@@ -11,7 +11,7 @@ export function AboutView(BASE_PATH) {
             <div class="about-text">
                 <h2>About Us</h2>
                 <p>
-                    At ON TIME GROUP, we deliver more than just waste removal—we provide a complete, well-structured process to maintain and manage your construction site with efficiency and care.
+                    At <span>ONTIME</span>, we deliver more than just waste removal—we provide a complete, well-structured process to maintain and manage your construction site with efficiency and care.
                     Based in Ingleburn and servicing the entire Sydney Metro Area, we understand that no two sites are the same.
                     Every builder, trade, and project comes with its own challenges—and that’s exactly where the ON TIME System shines.<br><br>
 
