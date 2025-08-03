@@ -23,7 +23,7 @@ function getRelativePath(fullPath) {
 
 function navTemplate(currentPath) {
     const links = [
-        { path: '/about', label: 'About' },
+        { path: '/about', label: 'About Us' },
         { path: '/contact', label: 'Contact' }
     ];
     return `
